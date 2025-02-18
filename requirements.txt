@@ -4,3 +4,5 @@ langchain-community==0.3.17
 beautifulsoup4==4.13.3
 langchain-text-splitters==0.3.6
 qdrant-client==1.13.2
+pypdf==5.3.0
+cryptography>=3.1
