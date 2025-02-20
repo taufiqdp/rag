@@ -1,0 +1,27 @@
+azure_openai:
+  api_key: "YOUR_AZURE_OPENAI_API_KEY"
+  endpoint: "https://your-endpoint.azure.com/"
+  embedding_model: "text-embedding-3-small"
+  api_version: "2023-05-15"
+
+together_ai:
+  api_key: "YOUR_TOGETHER_AI_API_KEY"
+  model: "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free"
+
+qdrant:
+  host: "localhost"
+  port: 6333
+  collection_name: "new_collection"
+
+chunking:
+  chunk_size: 1000
+  chunk_overlap: 100
+  separators: ["\n\n", "\n", " ", ""]
+
+hf:
+  hf_token: "YOUR_HF_TOKEN"
+  hf_embedding_model: "Alibaba-NLP/gte-multilingual-base"
+
+ollama:
+  model: "deepseek-r1:1.5b"
+  base_url: "http://localhost:11434/v1"
