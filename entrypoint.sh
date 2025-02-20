@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-MODEL_NAME="qwen:0.5b"
+MODEL_NAME="deepseek-r1:1.5b"
 
 mkdir -p /root/.ollama
 
