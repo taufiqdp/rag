@@ -1,6 +1,7 @@
-from models.embedding import AzureOpenAIEmbeddings
+from models.embedding import AzureOpenAIEmbeddings, HFEmbeddings
 
-embedding_model = AzureOpenAIEmbeddings()
+# embedding_model = AzureOpenAIEmbeddings()
+embedding_model = HFEmbeddings()
 
 
 def get_embeddings(texts):

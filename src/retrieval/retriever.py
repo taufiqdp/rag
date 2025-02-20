@@ -1,7 +1,8 @@
-from models.embedding import AzureOpenAIEmbeddings
+from models.embedding import AzureOpenAIEmbeddings, HFEmbeddings
 from models.qdrant_client import QdrantDB
 
-embedding_model = AzureOpenAIEmbeddings()
+# embedding_model = AzureOpenAIEmbeddings()
+embedding_model = HFEmbeddings()
 qdrant_db = QdrantDB()
 
 

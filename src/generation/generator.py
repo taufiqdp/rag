@@ -1,7 +1,7 @@
-from models.llm import TogetherLLM
-from retrieval.retriever import retrieve_relevant_chunks
+from models.llm import OllamaLLM, TogetherLLM
 
-llm_model = TogetherLLM()
+# llm_model = TogetherLLM()
+llm_model = OllamaLLM()
 
 
 def generate_answer(prompt, stream=True):

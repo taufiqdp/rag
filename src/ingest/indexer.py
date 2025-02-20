@@ -12,7 +12,7 @@ def create_points(texts):
     points = [
         PointStruct(
             id=idx,
-            vector=data.embedding,
+            vector=data,
             payload={"text": text},
         )
         for idx, (data, text) in enumerate(zip(embeddings, texts))

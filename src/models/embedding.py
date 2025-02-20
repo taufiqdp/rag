@@ -1,7 +1,12 @@
+import warnings
+
+from huggingface_hub import login
 from openai import AzureOpenAI
+from sentence_transformers import SentenceTransformer
 
 from utils.utils import load_config
 
+warnings.filterwarnings("ignore")
 config = load_config()
 
 
@@ -38,3 +43,21 @@ class AzureOpenAIEmbeddings:
         except Exception as e:
             print(f"Error getting embeddings: {e}")
             return None
+
+
+class HFEmbeddings:
+    def __init__(self):
+        hf_config = config["hf"]
+        hf_token = hf_config["hf_token"]
+        hf_embedding_model = hf_config["hf_embedding_model"]
+        login(hf_token)
+
+        self.model = SentenceTransformer(hf_embedding_model, trust_remote_code=True)
+
+    def get_embedding(self, text):
+        """Gets an embedding for the given text."""
+        return self.model.encode(text)
+
+    def get_embeddings(self, texts):
+        """Gets embeddings for the given texts."""
+        return self.model.encode(texts)

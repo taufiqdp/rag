@@ -12,11 +12,12 @@ qdrant_db = QdrantDB()
 
 def main():
     config = load_config()
-    question = "why ACBRNN still need improvement?"
+    question = "what data they use to experiment the model?"
 
     if qdrant_db.client.collection_exists(qdrant_db.collection_name):
         print(f"Collection '{qdrant_db.collection_name}' already exists.")
     else:
+        print(f"Collection '{qdrant_db.collection_name}' does not exist. Creating...")
         documents = load_data()
         chunks = chunk_data(documents)
         texts = [chunk.page_content for chunk in chunks]
