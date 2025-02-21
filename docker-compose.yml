@@ -1,7 +1,6 @@
 services:
   ollama:
-    image: ollama/ollama:latest
-    pull_policy: always
+    build: .
     container_name: ollama
     ports:
       - "11434:11434"
@@ -9,8 +8,7 @@ services:
     restart: always
     volumes:
       - ./ollama_data:/root/.ollama
-      - ./entrypoint.sh:/entrypoint.sh
-    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+      - ./config/config.yaml:/app/config.yaml
 
   qdrant:
     image: qdrant/qdrant:latest

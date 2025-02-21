@@ -1,7 +1,12 @@
 #!/bin/bash
 set -e
 
-MODEL_NAME="deepseek-r1:1.5b"
+MODEL_NAME=$(yq e '.ollama.model' /app/config.yaml)
+
+if [ -z "$MODEL_NAME" ]; then
+    echo "Error: Could not read ollama.model from config.yaml.  Ensure 'yq' is installed and config.yaml is accessible."
+    exit 1
+fi
 
 mkdir -p /root/.ollama
 
