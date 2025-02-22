@@ -15,6 +15,10 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
+ENV TRANSFORMERS_CACHE=/cache/huggingface
+ENV HF_HOME=/cache/huggingface
+RUN mkdir -p /cache/huggingface
+
 COPY --from=builder /root/.local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
 
 COPY src/ app/

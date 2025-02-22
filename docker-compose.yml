@@ -31,3 +31,10 @@ services:
     depends_on:
       - ollama
       - qdrant
+    volumes:
+      - ./huggingface_data:/cache/huggingface
+
+volumes:
+  huggingface_data:
+  ollama_data:
+  qdrant_data:
