@@ -14,7 +14,8 @@ cd rag
 ```
 
 2. Configure the configuration file
-   Rename config.example.yaml to config.yaml and configure the file according to your needs.
+
+   - Rename config.example.yaml to config.yaml and configure the file according to your needs.
 
 3. Build and start the docker container
 
@@ -23,4 +24,4 @@ docker compose up -d --build
 ```
 
 4. Access the application
-   The application should now be running on http://localhost:8501
+   - The application should now be running on http://localhost:8501
