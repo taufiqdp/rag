@@ -174,3 +174,4 @@ cython_debug/
 # Volume
 ollama_data/
 qdrant_data/
+huggingface_data/
