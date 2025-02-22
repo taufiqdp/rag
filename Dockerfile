@@ -19,6 +19,8 @@ COPY --from=builder /root/.local/lib/python3.10/site-packages /usr/local/lib/pyt
 
 COPY src/ app/
 
+COPY config/ config/
+
 EXPOSE 8501
 
 CMD ["python3", "-m", "streamlit", "run", "app/main.py"]
