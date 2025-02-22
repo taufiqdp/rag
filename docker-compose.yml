@@ -25,6 +25,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: streamlit
     ports:
       - "8501:8501"
     depends_on:
