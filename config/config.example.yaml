@@ -1,7 +1,7 @@
 qdrant:
-  host: "localhost"
+  host: "qdrant"
   port: 6333
-  collection_name: "new_collection"
+  collection_name: "my_collection"
 
 chunking:
   chunk_size: 1000
@@ -14,15 +14,4 @@ hf:
 
 ollama:
   model: "deepseek-r1:1.5b"
-  base_url: "http://localhost:11434/v1"
-
-# Optional
-azure_openai:
-  api_key: "YOUR_AZURE_OPENAI_API_KEY"
-  endpoint: "https://your-endpoint.azure.com/"
-  embedding_model: "text-embedding-3-small"
-  api_version: "2023-05-15"
-
-together_ai:
-  api_key: "YOUR_TOGETHER_AI_API_KEY"
-  model: "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free"
+  base_url: "http://ollama:11434/v1"
