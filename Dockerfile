@@ -1,14 +1,24 @@
-FROM ollama/ollama:latest
-
-# Install yq
-RUN apt-get update
-RUN apt-get install -y curl
-RUN curl -sSL https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -o /usr/bin/yq && chmod +x /usr/bin/yq
-
-COPY config/config.yaml /app/config.yaml
-
-COPY entrypoint.sh /app/entrypoint.sh
-
-ENTRYPOINT ["/app/entrypoint.sh"]
+# Build stage
+FROM python:3.10-slim AS builder
 
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir --no-warn-script-location --user -r requirements.txt
+
+# Final stage
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY --from=builder /root/.local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
+
+COPY src/ app/
+
+EXPOSE 8501
+
+CMD ["python3", "-m", "streamlit", "run", "app/main.py"]
