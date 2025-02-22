@@ -1,5 +1,12 @@
 # Local Retrieval Augmented Generation (RAG)
 
+## Tools
+
+- [Ollama](https://ollama.com/)
+- [LangChain](https://langchain.com/)
+- [Qdrant](https://qdrant.tech/)
+- [Sentence Transformers](https://sbert.net/)
+
 ## Pre-requisites
 
 - Docker
